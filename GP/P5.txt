@@ -1,0 +1,32 @@
+Aim: Create 2D infinite scrolling background.
+
+Step 1: Open the Unity software and create a new project. Select Universal 2D Template. 
+
+Step 2: Setting up the field 
+  •	Download a really long Image. This will serve as our background which will scroll infinitely.
+  •	Go to Assets and add the downloaded Image and set the image into our scene.
+
+Step 3: Add C# Script change the name of the C# Script add the code shown below.
+
+Code:
+using System.Collections; 
+using System.Collections.Generic; 
+using UnityEngine; 
+public class bgScroller : MonoBehaviour 
+{ 
+  // Start is called before the first frame update 
+  void Start() { }
+  // Update is called once per frame 
+  void Update() 
+  { 
+    transform.position += new Vector3(-5 * Time.deltaTime, 0); 
+    if (transform.position.x < -21.5) 
+    { 
+      transform.position = new Vector3(21.5f, transform.position.y); 
+    } 
+  } 
+}
+
+Step 4: After the background is set up. Duplicate it and place next to our original background
+
+Step 5: Click the Play button to see the screen displaying the scrolling background.
