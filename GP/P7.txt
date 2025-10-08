@@ -1,0 +1,30 @@
+Aim: Design and animate game character in Unity.
+
+Step 1: Character Selection and Download
+  1.	Download the Banana Man character from the Unity Asset Store.
+  2.	Go to Mixamo, sign in, and choose an animation for your character.
+  3.	Download the animation file in FBX for Unity (.fbx) format, selecting Skin = Without Skin.
+
+Step 2: Setup Unity Project
+  1. Open Unity Hub, create a New 3D Project, and give it an appropriate name.
+  2. In the SampleScene, add a Plane (GameObject  3D Object  Plane) to act as the ground.
+
+Step 3: Import Assets
+  1. Drag and drop the Banana Man character and animation files into the Assets folder in Unity.
+  2. Create a Materials folder inside Assets and Extract Textures and Materials into it.
+
+Step 4: Configure Character Rig
+  1. Select the Banana Man character file, go to the Rig tab in the Inspector, set Animation Type = Humanoid, and click Apply.
+  2. For the animation file:
+    a. Set Animation Type = Humanoid in the Rig tab.
+    b. Change Avatar Definition = Copy from Other Avatar and select the Banana Man avatar as the source.
+    c. In the Animation tab, enable Loop Time if the animation should repeat.
+
+Step 5: Setup Animator Controller
+  1. Create an Animator Controller in the Assets folder and rename it appropriately.
+  2. Open the Animator Controller and drag the animation clip into the Animator window to create a state.
+  3. Assign this Animator Controller to the Animator component of the Banana Man character.
+ 
+Step 6: Add Character to Scene and Run
+  1. Drag the Banana Man character from Assets into the scene and place it on the Plane.
+  2. Click Play to run the scene and view the animated character.
