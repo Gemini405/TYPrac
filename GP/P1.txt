@@ -1,0 +1,59 @@
+Aim: Setup DirectX 11 Windows framework and initialize Direct3D Device. Load models into DirectX11 and render them.
+
+In this practical we are just learning the windows framework and initializing a Direct3D Device. 
+
+Step 1: 
+  1.	Create new project, and select “Windows Forms Application”, select .NET Framework as 2.0 in Visuals C#.
+  2.	Right Click on properties Click on open click on build Select Platform Target and Select x86. 
+
+Step 2: Click on View Code of Form 1. 
+
+Step 3: Go to Solution Explorer, right click on project name, and select Add Reference. 
+  1. Click on Browse and select the given .dll files which are “Microsoft.DirectX”, “Microsoft.DirectX.Direct3D”, and “Microsoft.DirectX.DirectX3DX”. 
+  2. https://www.microsoft.com/en-in/download/details.aspx?id=6812
+
+Step 4: Go to Properties Section of Form, select Paint in the Event List and enter as Form1_Paint. 
+
+Step 5: Edit the Form’s C# code file. Namespace must be as same as your project name. Loading models into DirectX 11 and rendering 
+ 
+Code: 
+using Microsoft.DirectX.Direct3D; 
+using System; 
+using System.Collections.Generic; 
+using System.ComponentModel; 
+using System.Data; 
+using System.Drawing; 
+using System.Text; 
+using System.Windows.Forms; 
+namespace Game3D 
+{ 
+  public partial class Form1 : Form 
+  { 
+ 
+    Microsoft.DirectX.Direct3D.Device device; 
+    public Form1() 
+    { 
+      InitializeComponent(); 
+      InitDevice(); 
+    } 
+    
+    public void InitDevice() 
+    {
+      PresentParameters pp = new PresentParameters(); 
+      pp.Windowed = true; // correct property name 
+      pp.SwapEffect = SwapEffect.Discard; 
+      device = new Device(0, DeviceType.Hardware, this, CreateFlags.HardwareVertexProcessing, pp); // use the correct variable and pass presentParameters 
+    } 
+    
+    public void Render() // method name should start with a capital letter 
+    { 
+      device.Clear(ClearFlags.Target, Color.CornflowerBlue, 0, 1); // correct order of parameters
+      device.Present(); // use the correct variable 
+    } 
+
+    private void Form1_Paint_1(object sender, PaintEventArgs e) 
+    { 
+      Render(); 
+    } 
+  } 
+}
